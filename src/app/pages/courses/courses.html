@@ -1,0 +1,46 @@
+<section class="intro">
+  <div class="intro__inner">
+    <p class="eyebrow">Formación</p>
+    <h1>Aprendé a mezclar con propósito.</h1>
+    <p class="intro__copy">Formación pensada por GIØR para quienes quieren pasar de escuchar techno a mezclarlo: desde las bases técnicas hasta construir una identidad sonora propia.</p>
+  </div>
+</section>
+
+<section class="programs">
+  <div class="programs__inner">
+    <p class="eyebrow">Programas</p>
+    <h2>Elegí tu punto de partida</h2>
+
+    <div class="programs__grid">
+      @for (p of programs; track p.title) {
+        <article class="programs__card">
+          <h3>{{ p.title }}</h3>
+          <p>{{ p.copy }}</p>
+          <div class="programs__meta">
+            <span>{{ p.modality }}</span>
+            <span>{{ p.duration }}</span>
+          </div>
+        </article>
+      }
+    </div>
+  </div>
+</section>
+
+<section class="testimonials">
+  <div class="testimonials__inner">
+    <p class="eyebrow">Testimonios</p>
+    <div class="testimonials__grid">
+      @for (t of testimonials; track t.name) {
+        <blockquote>
+          <p>“{{ t.quote }}”</p>
+          <cite>{{ t.name }}</cite>
+        </blockquote>
+      }
+    </div>
+  </div>
+</section>
+
+<section class="closing">
+  <h2>¿Querés sumarte a la próxima cohorte?</h2>
+  <a routerLink="/booking" class="link-gold">Consultar por formación</a>
+</section>

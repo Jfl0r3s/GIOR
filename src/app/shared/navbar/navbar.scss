@@ -1,0 +1,183 @@
+@use '../../../styles/variables' as *;
+
+.nav {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+
+  background: rgba(10, 10, 10, 0.86);
+
+  backdrop-filter: blur(10px);
+
+  border-bottom: 1px solid var(--line);
+}
+
+.nav__row {
+  @include container;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  height: 72px;
+}
+
+.nav__logo {
+  font-family: var(--font-display);
+
+  font-weight: 800;
+
+  font-size: 1.15rem;
+
+  letter-spacing: 0.06em;
+
+  text-decoration: none;
+
+  color: var(--white);
+
+  span {
+    color: var(--gold);
+  }
+}
+
+.nav__links {
+  display: flex;
+  align-items: center;
+
+  gap: 2rem;
+
+  a {
+    font-size: 0.82rem;
+
+    font-weight: 600;
+
+    letter-spacing: 0.02em;
+
+    text-decoration: none;
+
+    color: var(--grey);
+
+    transition: color 0.2s ease;
+
+    &:hover {
+      color: var(--white);
+    }
+
+    &.is-active {
+      color: var(--white);
+    }
+  }
+}
+
+.nav__burger {
+  display: none;
+
+  flex-direction: column;
+  justify-content: center;
+
+  gap: 5px;
+
+  width: 32px;
+  height: 32px;
+
+  background: none;
+
+  border: none;
+
+  cursor: pointer;
+
+  padding: 0;
+
+  span {
+    display: block;
+
+    height: 2px;
+
+    background: var(--white);
+
+    transition:
+      transform 0.2s ease,
+      opacity 0.2s ease;
+  }
+
+  &.is-open {
+    span:nth-child(1) {
+      transform: translateY(7px) rotate(45deg);
+    }
+
+    span:nth-child(2) {
+      opacity: 0;
+    }
+
+    span:nth-child(3) {
+      transform: translateY(-7px) rotate(-45deg);
+    }
+  }
+}
+
+
+/* =========================================================
+   MOBILE
+========================================================= */
+@media (max-width: 860px) {
+
+  .nav__burger {
+    display: flex;
+  }
+
+  .nav__links {
+    position: fixed;
+
+    top: 72px;
+    left: 0;
+    right: 0;
+    bottom: 0;
+
+    width: 100%;
+    min-height: calc(100vh - 72px);
+
+    background: rgba(8, 8, 8, 0.94);
+
+    flex-direction: column;
+    align-items: flex-start;
+
+    gap: 0;
+
+    padding: 1rem var(--gap) 2rem;
+
+    transform: translateY(-8px);
+
+    opacity: 0;
+    pointer-events: none;
+
+    transition:
+      opacity 0.2s ease,
+      transform 0.2s ease;
+
+    z-index: 99;
+
+    a {
+      width: 100%;
+
+      padding: 0.9rem 0;
+
+      border-bottom: 1px solid var(--line);
+
+      color: #bdbdbd;
+
+      &:hover {
+        color: #ffffff;
+      }
+
+      &.is-active {
+        color: #ffffff;
+      }
+    }
+
+    &--open {
+      opacity: 1;
+      transform: translateY(0);
+      pointer-events: auto;
+    }
+  }
+}

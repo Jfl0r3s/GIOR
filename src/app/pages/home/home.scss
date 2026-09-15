@@ -1,0 +1,1058 @@
+@use '../../../styles/variables' as *;
+
+
+/* =========================================================
+   HERO
+========================================================= */
+.hero {
+  position: relative;
+
+  min-height: 86vh;
+  overflow: hidden;
+
+  border-bottom: 1px solid var(--line);
+
+  background-image: url('/fotos/hero-cabina-azotea.webp');
+
+  background-size: cover;
+  background-position: center 25%;
+  background-repeat: no-repeat;
+}
+
+.hero::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  pointer-events: none;
+
+  background:
+    linear-gradient(rgba(0, 0, 0, 0.05), rgba(0, 0, 0, 0.05));
+   
+  background-size: auto, 160px 160px;
+  mix-blend-mode: overlay;
+}
+
+/* =========================================================
+   EFECTO DE LÍNEAS HORIZONTALES
+========================================================= */
+
+.hero::before {
+  content: '';
+
+  position: absolute;
+  inset: 0;
+
+  z-index: 2;
+
+  pointer-events: none;
+
+  background:
+    repeating-linear-gradient(
+      to bottom,
+      rgba(255, 255, 255, 0.025) 0px,
+      rgba(255, 255, 255, 0.025) 1px,
+      transparent 1px,
+      transparent 4px
+    );
+
+  opacity: .65;
+}
+
+
+/* Textura suave adicional */
+
+.hero::after {
+  content: '';
+
+  position: absolute;
+  inset: 0;
+
+  z-index: 1;
+
+  pointer-events: none;
+
+  background:
+    radial-gradient(
+      circle at 20% 50%,
+      rgba(255, 255, 255, .025),
+      transparent 35%
+    );
+
+  opacity: .7;
+}
+
+
+/* =========================================================
+   CONTENEDOR HERO
+========================================================= */
+
+.hero__inner {
+  @include container;
+
+  position: relative;
+
+  z-index: 3;
+
+  display: grid;
+
+  grid-template-columns: 1.1fr .9fr;
+
+  align-items: center;
+
+  gap: 2rem;
+
+  min-height: 90vh;
+
+  padding-top: 6rem;
+
+  padding-bottom: 3rem;
+}
+
+
+/* =========================================================
+   CONTENIDO
+========================================================= */
+
+.hero__copy {
+
+  transform: translateY(2rem);
+}
+
+
+/* =========================================================
+   EYEBROW
+========================================================= */
+
+.hero__eyebrow {
+  @include eyebrow;
+
+  margin: 0 0 1.4rem;
+
+  color: var(--gold);
+
+  font-size: .72rem;
+
+  font-weight: 700;
+
+  letter-spacing: .16em;
+
+  text-transform: uppercase;
+}
+
+
+/* =========================================================
+   TITULO GIØR
+========================================================= */
+.hero__title {
+  position: relative;
+
+  margin: 0;
+
+  color: var(--white);
+
+  font-size: clamp(
+    4.5rem,
+    9vw,
+    7rem
+  );
+
+  line-height: .85;
+
+  font-weight: 570;
+
+  letter-spacing: .095em;
+}
+
+.hero__title span {
+  position: relative;
+
+  color: var(--white);
+}
+
+
+.hero__title span::after {
+  content: '';
+
+  position: absolute;
+
+  width: 72%;
+
+  height: 5px;
+
+  left: 14%;
+
+  top: 48%;
+
+  background: var(--white);
+
+  transform: rotate(-45deg);
+
+  opacity: .95;
+
+  pointer-events: none;
+}
+
+
+/* =========================================================
+   TAGLINE
+========================================================= */
+
+.hero__tagline {
+  margin: 1.5rem 0 0;
+
+  color: var(--white);
+
+  font-size: clamp(
+    1.5rem,
+    3vw,
+    2.2rem
+  );
+
+  line-height: 1.15;
+
+  font-weight: 600;
+
+  letter-spacing: -.025em;
+}
+
+
+/* =========================================================
+   GÉNEROS
+========================================================= */
+
+.hero__genres {
+  margin: .7rem 0 0;
+
+  color: #ffffff;
+
+  font-size: .78rem;
+
+  font-weight: 500;
+
+  letter-spacing: .1em;
+
+  text-transform: uppercase;
+}
+
+
+/* =========================================================
+   ACCIONES
+========================================================= */
+
+.hero__actions {
+  display: flex;
+
+  align-items: center;
+
+  gap: 1rem;
+
+  margin-top: 2.5rem;
+
+  flex-wrap: wrap;
+}
+
+
+/* =========================================================
+   BOTÓN SOLICITAR BOOKING
+========================================================= */
+
+.hero__booking {
+  display: inline-flex;
+
+  align-items: center;
+
+  justify-content: center;
+
+  min-height: 48px;
+
+  padding: 0 1.8rem;
+
+  background: #dd2e2e;
+
+  color: #ffffff;
+
+  border: 1px solid var(--red);
+
+  text-decoration: none;
+
+  font-size: .75rem;
+
+  font-weight: 800;
+
+  letter-spacing: .06em;
+
+  transition:
+    background-color .25s ease,
+    color .25s ease,
+    border-color .25s ease,
+    transform .25s ease;
+}
+
+
+/*
+  Hover:
+  rojo -> blanco
+  blanco -> negro
+*/
+
+.hero__booking:hover {
+  background: #ffffff;
+
+  color: #050505;
+
+  border-color: #ffffff;
+
+  transform: translateY(-2px);
+}
+
+
+/* =========================================================
+   REDES SOCIALES
+========================================================= */
+
+.hero__social {
+  display: flex;
+
+  gap: .65rem;
+}
+
+
+.hero__social a {
+  position: relative;
+
+  overflow: hidden;
+
+  width: 48px;
+
+  height: 48px;
+
+  display: grid;
+
+  place-items: center;
+
+  background: rgba(0, 0, 0, .25);
+
+  border: 1px solid var(--line);
+
+  color: var(--grey);
+
+  text-decoration: none;
+
+  transition:
+    color .25s ease,
+    border-color .25s ease,
+    background-color .25s ease,
+    transform .25s ease,
+    box-shadow .25s ease;
+}
+
+
+/* =========================================================
+   ICONOS SVG
+========================================================= */
+
+.hero__social svg {
+  width: 18px;
+
+  height: 18px;
+
+  fill: none;
+
+  stroke: currentColor;
+
+  stroke-width: 1.5;
+
+  stroke-linecap: round;
+
+  stroke-linejoin: round;
+
+  transition:
+    transform .25s ease,
+    filter .25s ease;
+}
+
+
+.hero__social svg path {
+  fill: none;
+}
+
+
+.hero__social .social-dot {
+  fill: currentColor;
+
+  stroke: none;
+}
+
+
+/* Línea inferior animada */
+
+.hero__social a::after {
+  content: '';
+
+  position: absolute;
+
+  left: 0;
+
+  bottom: 0;
+
+  width: 0;
+
+  height: 1px;
+
+  background: currentColor;
+
+  transition: width .3s ease;
+}
+
+
+.hero__social a:hover::after {
+  width: 100%;
+}
+
+
+/* =========================================================
+   INSTAGRAM
+========================================================= */
+
+.hero__social a:nth-child(1):hover {
+  color: #e1306c;
+
+  border-color: #e1306c;
+
+  background: rgba(225, 48, 108, .07);
+
+  transform: translateY(-3px);
+
+  box-shadow:
+    0 0 18px rgba(225, 48, 108, .15);
+}
+
+
+.hero__social a:nth-child(1):hover svg {
+  transform: scale(1.12);
+
+  filter:
+    drop-shadow(
+      0 0 5px
+      rgba(225, 48, 108, .5)
+    );
+}
+
+
+/* =========================================================
+   TIKTOK
+========================================================= */
+
+.hero__social a:nth-child(2):hover {
+  color: #25f4ee;
+
+  border-color: #25f4ee;
+
+  background: rgba(37, 244, 238, .05);
+
+  transform: translateY(-3px);
+
+  box-shadow:
+    -3px 0 10px rgba(37, 244, 238, .12),
+     3px 0 10px rgba(254, 44, 85, .12);
+}
+
+
+.hero__social a:nth-child(2):hover svg {
+  transform: scale(1.12);
+
+  filter:
+    drop-shadow(
+      -2px 0 3px
+      rgba(37, 244, 238, .6)
+    )
+    drop-shadow(
+      2px 0 3px
+      rgba(254, 44, 85, .5)
+    );
+}
+
+
+/* =========================================================
+   SOUNDCLOUD
+========================================================= */
+
+.hero__social a:nth-child(3):hover {
+  color: #ff5500;
+
+  border-color: #ff5500;
+
+  background: rgba(255, 85, 0, .07);
+
+  transform: translateY(-3px);
+
+  box-shadow:
+    0 0 18px rgba(255, 85, 0, .15);
+}
+
+
+.hero__social a:nth-child(3):hover svg {
+  transform: scale(1.12);
+
+  filter:
+    drop-shadow(
+      0 0 5px
+      rgba(255, 85, 0, .5)
+    );
+}
+
+
+/* =========================================================
+   ELEMENTO GRÁFICO DEL HERO
+========================================================= */
+
+.hero__mark {
+  display: flex;
+
+  justify-content: center;
+
+  align-items: center;
+
+  position: relative;
+
+  transform: translateY(2rem);
+}
+
+
+.hero__mark svg {
+  width: min(100%, 420px);
+
+  height: auto;
+
+  opacity: .7;
+
+  animation: heroPulse 8s ease-in-out infinite;
+}
+
+
+/* Animación muy suave */
+
+@keyframes heroPulse {
+
+  0%,
+  100% {
+    transform: scale(1);
+
+    opacity: .65;
+  }
+
+  50% {
+    transform: scale(1.035);
+
+    opacity: .82;
+  }
+}
+
+
+/* =========================================================
+   CONCEPTOS
+========================================================= */
+
+.concepts {
+  border-bottom: 1px solid var(--line);
+}
+
+
+.concepts__grid {
+  @include container;
+
+  display: grid;
+
+  grid-template-columns: repeat(4, 1fr);
+}
+
+
+.concepts__grid h3 {
+  font-size: 1rem;
+
+  letter-spacing: .02em;
+
+  color: var(--white);
+}
+
+
+.concepts__grid p {
+  margin-top: .6rem;
+
+  font-size: .85rem;
+
+  line-height: 1.55;
+
+  color: var(--grey);
+}
+
+
+.concepts__item {
+  padding: 3rem 1.75rem 3rem 0;
+
+  border-left: 1px solid var(--line);
+
+  padding-left: 1.75rem;
+}
+
+
+.concepts__item:first-child {
+  border-left: none;
+
+  padding-left: 0;
+}
+
+
+/* =========================================================
+   SHOWS
+========================================================= */
+
+.shows {
+  @include container;
+
+  padding-top: 5rem;
+
+  padding-bottom: 5rem;
+}
+
+
+.shows__head {
+  margin-bottom: 2.5rem;
+}
+
+
+.shows__head h2 {
+  margin-top: .6rem;
+
+  color: var(--white);
+
+  font-size: clamp(
+    1.5rem,
+    3vw,
+    2.1rem
+  );
+}
+
+
+.shows__list {
+  border-top: 1px solid var(--line);
+}
+
+
+.shows__row {
+  display: grid;
+
+  grid-template-columns:
+    110px
+    1fr
+    auto;
+
+  align-items: center;
+
+  gap: 1.5rem;
+
+  padding: 1.4rem 0;
+
+  border-bottom: 1px solid var(--line);
+
+  transition:
+    padding-left .25s ease,
+    background-color .25s ease;
+}
+
+
+.shows__row:hover {
+  padding-left: .5rem;
+}
+
+
+.shows__date {
+  color: var(--gold);
+
+  font-size: .9rem;
+
+  font-weight: 700;
+
+  letter-spacing: .04em;
+}
+
+
+.shows__info {
+  display: flex;
+
+  flex-direction: column;
+}
+
+
+.shows__venue {
+  color: var(--white);
+
+  font-weight: 600;
+}
+
+
+.shows__city {
+  margin-top: .15rem;
+
+  color: var(--grey-dim);
+
+  font-size: .82rem;
+}
+
+
+.shows__type {
+  color: var(--grey);
+
+  font-size: .78rem;
+
+  text-align: right;
+
+  white-space: nowrap;
+}
+
+
+.shows__link {
+  display: inline-block;
+
+  margin-top: 2rem;
+
+  padding-bottom: 2px;
+
+  color: var(--white);
+
+  border-bottom: 1px solid var(--gold);
+
+  font-size: .85rem;
+
+  font-weight: 600;
+
+  text-decoration: none;
+
+  transition:
+    color .2s ease,
+    border-color .2s ease;
+}
+
+
+.shows__link:hover {
+  color: var(--gold);
+
+  border-color: var(--white);
+}
+
+
+/* =========================================================
+   EYEBROW GENERAL
+========================================================= */
+
+.eyebrow {
+  @include eyebrow;
+
+  color: var(--gold);
+}
+
+
+/* =========================================================
+   CLOSING / CTA
+========================================================= */
+
+.closing {
+  @include container;
+
+  padding-top: 6rem;
+
+  padding-bottom: 6rem;
+
+  text-align: center;
+
+  border-top: 1px solid var(--line);
+}
+
+
+.closing h2 {
+  max-width: 680px;
+
+  margin: 0 auto 2.25rem;
+
+  color: var(--white);
+
+  font-size: clamp(
+    1.6rem,
+    4vw,
+    2.6rem
+  );
+
+  line-height: 1.1;
+}
+
+
+.link-gold {
+  display: inline-block;
+
+  color: var(--gold);
+
+  border-bottom: 1px solid var(--gold);
+
+  padding-bottom: 3px;
+
+  font-size: .85rem;
+
+  font-weight: 600;
+
+  text-decoration: none;
+
+  transition:
+    color .2s ease,
+    border-color .2s ease;
+}
+
+
+.link-gold:hover {
+  color: var(--white);
+
+  border-color: var(--white);
+}
+
+
+/* =========================================================
+   TABLET
+========================================================= */
+
+@media (max-width: 860px) {
+
+  .hero {
+    min-height: auto;
+  }
+
+
+  .hero__inner {
+    grid-template-columns: 1fr;
+
+    min-height: auto;
+
+    padding-top: 5rem;
+
+    padding-bottom: 5rem;
+  }
+
+
+  .hero__copy {
+    transform: translateY(1rem);
+  }
+
+
+  .hero__mark {
+    order: -1;
+
+    margin-bottom: -5rem;
+
+    transform: none;
+
+    opacity: .25;
+  }
+
+
+  .hero__mark svg {
+    width: min(70%, 300px);
+  }
+
+
+  .concepts__grid {
+    grid-template-columns: 1fr 1fr;
+  }
+
+
+  .concepts__item {
+    border-left: none;
+
+    padding: 2rem 0;
+
+    border-bottom: 1px solid var(--line);
+  }
+
+
+  .concepts__item:nth-child(odd) {
+    padding-right: 1.5rem;
+  }
+
+
+  .concepts__item:nth-child(even) {
+    padding-left: 1.5rem;
+  }
+}
+
+
+/* =========================================================
+   MÓVIL
+========================================================= */
+
+@media (max-width: 600px) {
+
+  .hero__inner {
+    padding-top: 4rem;
+
+    padding-bottom: 4rem;
+  }
+
+
+  .hero__copy {
+    transform: translateY(.5rem);
+  }
+
+
+  .hero__title {
+    font-size: 5rem;
+  }
+
+
+  .hero__tagline {
+    font-size: 1.5rem;
+  }
+
+
+  .hero__genres {
+    font-size: .7rem;
+
+    line-height: 1.5;
+  }
+
+
+  .hero__actions {
+    align-items: stretch;
+
+    gap: .8rem;
+
+    margin-top: 2rem;
+  }
+
+
+  .hero__booking {
+    width: 100%;
+  }
+
+
+  .hero__social {
+    width: 100%;
+  }
+
+
+  .hero__social a {
+    flex: 1;
+  }
+
+
+  .hero__mark {
+    margin-bottom: -4rem;
+  }
+
+
+  .hero__mark svg {
+    width: 260px;
+  }
+
+
+  .shows {
+    padding-top: 4rem;
+
+    padding-bottom: 4rem;
+  }
+
+
+  .shows__row {
+    grid-template-columns:
+      70px
+      1fr;
+
+    gap: 1rem;
+  }
+
+
+  .shows__type {
+    grid-column: 2;
+
+    margin-top: .3rem;
+
+    text-align: left;
+  }
+
+
+  .closing {
+    padding-top: 5rem;
+
+    padding-bottom: 5rem;
+  }
+}
+
+
+/* =========================================================
+   MÓVIL PEQUEÑO
+========================================================= */
+
+@media (max-width: 400px) {
+
+  .hero__title {
+    font-size: 4.3rem;
+  }
+
+
+  .hero__tagline {
+    font-size: 1.35rem;
+  }
+
+
+  .hero__booking {
+    font-size: .7rem;
+
+    padding: 0 1rem;
+  }
+
+
+  .hero__social a {
+    height: 44px;
+  }
+
+
+  .hero__social svg {
+    width: 17px;
+
+    height: 17px;
+  }
+}
+
+@media (max-width: 860px) {
+  .concepts__grid {
+    grid-template-columns: 1fr 1fr;
+    text-align: center;
+  }
+
+  .concepts__item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 2.5rem 1rem;
+    border-left: none;
+    border-bottom: 1px solid var(--line);
+  }
+
+  .concepts__item:nth-child(odd),
+  .concepts__item:nth-child(even) {
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+}
+
+@media (max-width: 600px) {
+  .concepts__grid {
+    grid-template-columns: repeat(2, 1fr); 
+  }
+
+  .concepts__item {
+    padding: 2rem 0.5rem; 
+  }
+  
+  .concepts__item h3 {
+    font-size: 0.85rem;
+    letter-spacing: 0;
+  }
+}

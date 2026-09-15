@@ -1,0 +1,31 @@
+<section class="venues">
+  <div class="venues__inner">
+    <p class="eyebrow">Dónde me presento</p>
+    <h1>Formatos y escenarios</h1>
+
+    <div class="venues__grid">
+      @for (v of venues; track v.title) {
+        <div class="venues__item">
+          <h3>{{ v.title }}</h3>
+          <p>{{ v.copy }}</p>
+        </div>
+      }
+    </div>
+  </div>
+</section>
+
+<section class="experience">
+  <div class="experience__inner">
+    <p class="eyebrow">Experiencia</p>
+    <h2>Trayectoria</h2>
+
+    <div class="experience__list">
+      @for (e of experience; track e.title) {
+        <div class="experience__row">
+          <h3>{{ e.title }}</h3>
+          <p>{{ e.copy }}</p>
+        </div>
+      }
+    </div>
+  </div>
+</section>

@@ -1,0 +1,28 @@
+# GIØR — Landing rediseñada (Angular 20)
+
+## Cómo correrlo
+```
+npm install
+ng serve
+```
+Abrí http://localhost:4200
+
+## Estructura de páginas (routing)
+- `/` → Home
+- `/about` → Giør (el artista)
+- `/music` → Music / Sets
+- `/tour` → Tour / Media
+- `/courses` → Formación
+- `/booking` → Booking / Contacto
+
+## Qué es contenido real vs. placeholder
+Todo el copy de Home, About, Music y Tour viene del press kit actual (PDF que me pasaste).
+Lo que SÍ es contenido de ejemplo, a reemplazar por vos:
+- **Home → Próximos shows**: 3 fechas inventadas (home.ts, array `shows`).
+- **Music → "Más sets"**: "Caos Ritual" y "Fricción" son nombres de ejemplo (music.ts, array `sets`).
+- **Courses**: toda la página es nueva (no existía en el sitio original) — programas, modalidades, duraciones y testimonios son placeholder (courses.ts).
+- **Booking**: los links de descarga de Press Kit y Rider técnico apuntan a `/descargas/...pdf`, hay que subir esos PDFs a `public/descargas/`.
+- **Fotos**: no tengo tus fotos reales, así que la galería en `/tour` usa fondos degradados en vez de imágenes. Reemplazá el bloque `.gallery__item` en tour.html por `<img>` cuando tengas los archivos (te recomiendo ponerlos en `public/fotos/`).
+
+## Estilo
+Tokens de color/tipografía centralizados en `src/styles/_variables.scss` (fondo negro, rojo de acento `--red: #d8402a`, botones con el mixin `button-primary`). Cambiando esas variables se actualiza todo el sitio.

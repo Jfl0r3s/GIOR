@@ -1,0 +1,73 @@
+<section class="intro">
+  <div class="intro__inner">
+    <p class="eyebrow">El artista</p>
+    <h1>No soy solo un DJ. Soy una</h1>
+    <h1>experiencia de liberación</h1>
+    <h1>emocional a través del</h1>
+    <h1>techno.</h1>
+
+    <div class="intro__copy">
+      <p>Soy GIØR, un artista de schranz y hard techno que transforma la intensidad, el caos y la energía cruda en experiencias de conexión, libertad y liberación emocional.</p>
+      <p>Viví la cultura rave desde la pista antes que desde la cabina, y esa experiencia sigue presente en cada presentación.</p>
+      <p>Mi proyecto nace de una historia de movimiento por Latinoamérica que encontró en la escena underground chilena mi hogar artístico.</p>
+    </div>
+  </div>
+</section>
+
+<section class="mix" #mixSection>
+  <div class="mix__inner">
+    <p class="eyebrow">Composición de un set</p>
+
+    <div class="mix__bars">
+      @for (share of setShares; track share.label) {
+        <div class="mix__row">
+          <span class="mix__label">{{ share.label }}</span>
+          <div class="mix__track">
+            <div class="mix__fill" [style.width.%]="mixVisible ? share.pct : 0"></div>
+          </div>
+          <span class="mix__range">{{ share.range }}</span>
+        </div>
+      }
+    </div>
+
+    <div class="mix__image">
+      <img src="/fotos/cadena.webp" alt="Cadena oxidada" loading="lazy" />
+    </div>
+  </div>
+</section>
+
+<section class="manifesto">
+  <div class="manifesto__inner">
+    <div class="manifesto__content">
+      <p>No creemos que la música exista únicamente para ser escuchada.</p>
+      <p>Creemos que la música puede transformarnos.</p>
+      <p>Creemos en la pista de baile como un espacio de libertad.</p>
+      <p>Creemos en la conexión entre personas que quizás nunca se habían visto antes.</p>
+      <p>Creemos que la intensidad puede convertirse en liberación.</p>
+      <p>Que el movimiento puede convertirse en expresión.</p>
+      <p>Que una noche puede convertirse en un recuerdo capaz de acompañarnos durante años.</p>
+    </div>
+  </div>
+</section>
+
+<section class="gallery">
+  <div class="gallery__inner">
+    <p class="eyebrow">Fotos</p>
+
+
+    <div class="gallery__grid">
+      @for (p of photos; track p.title; let i = $index) {
+        <figure
+          class="gallery__item"
+          [class]="'gallery__item--' + (i % 3)"
+          [style.backgroundImage]="'url(' + p.img + ')'"
+        >
+          <figcaption>
+            <span class="gallery__title">{{ p.title }}</span>
+            <span class="gallery__desc">{{ p.desc }}</span>
+          </figcaption>
+        </figure>
+      }
+    </div>
+  </div>
+</section>

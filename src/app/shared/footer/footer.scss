@@ -1,0 +1,64 @@
+@use '../../../styles/variables' as *;
+
+.footer {
+  border-top: 1px solid var(--line);
+  background: var(--bg-band);
+}
+
+.footer__row {
+  @include container;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  padding-top: 2.5rem;
+  padding-bottom: 2.5rem;
+
+  &--bottom {
+    padding-top: 1.25rem;
+    padding-bottom: 1.75rem;
+    border-top: 1px solid var(--line);
+    font-size: 0.72rem;
+    color: var(--grey-dim);
+
+    p {
+      margin: 0;
+      color: var(--grey-dim);
+    }
+  }
+}
+
+.footer__logo {
+  font-family: var(--font-display);
+  font-weight: 800;
+  font-size: 1.1rem;
+  letter-spacing: 0.06em;
+  margin: 0;
+
+  span {
+    color: var(--gold);
+  }
+}
+
+.footer__tag {
+  margin-top: 0.25rem;
+  font-size: 0.85rem;
+}
+
+.footer__social {
+  display: flex;
+  gap: 1.75rem;
+
+  a {
+    font-size: 0.8rem;
+    font-weight: 600;
+    text-decoration: none;
+    color: var(--grey);
+    transition: color 0.2s ease;
+
+    &:hover {
+      color: var(--gold);
+    }
+  }
+}

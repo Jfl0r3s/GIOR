@@ -1,0 +1,27 @@
+<header class="nav">
+  <div class="nav__row">
+    <a routerLink="/" class="nav__logo" (click)="close()">GI<span>Ø</span>R</a>
+
+    <nav class="nav__links" [class.nav__links--open]="open()">
+      @for (link of links; track link.path) {
+        <a
+          [routerLink]="link.path"
+          routerLinkActive="is-active"
+          [routerLinkActiveOptions]="{ exact: link.path === '/' }"
+          (click)="close()"
+        >{{ link.label }}</a>
+      }
+    </nav>
+
+    <button
+      type="button"
+      class="nav__burger"
+      [class.is-open]="open()"
+      (click)="toggle()"
+      [attr.aria-expanded]="open()"
+      aria-label="Abrir menú"
+    >
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</header>
